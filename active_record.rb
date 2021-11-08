@@ -4,6 +4,8 @@ require "active_record"
 # Setup a database connection
 ActiveRecord::Base.establish_connection(
   adapter: "sqlite3",
+  # the database symbol is LITERALLY pointing to the file for our database,
+  # which lives in the db folder and is named students.sqlite
   database: "db/students.sqlite"
 )
 
@@ -14,6 +16,7 @@ sql = <<-SQL
     name TEXT
   )
 SQL
+
 ActiveRecord::Base.connection.execute(sql)
 
 # Log SQL output to the terminal
